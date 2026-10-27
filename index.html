@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civic - Next-Gen Social Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="dark-theme">
+
+    <!-- Top Navigation Bar -->
+    <header class="app-header">
+        <div class="logo-container">
+            <svg class="app-logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="civicGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#00F2FE" />
+                        <stop offset="50%" stop-color="#4FACFE" />
+                        <stop offset="100%" stop-color="#00C6FF" />
+                    </linearGradient>
+                    <linearGradient id="civicAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#FF0844" />
+                        <stop offset="100%" stop-color="#FFB199" />
+                    </linearGradient>
+                </defs>
+                <rect width="100" height="100" rx="24" fill="url(#civicGrad)"/>
+                <!-- Stylized 'C' with chat & playback motif -->
+                <path d="M68 32C62 25 53 22 43 22C27 22 16 34 16 50C16 66 27 78 43 78C53 78 62 75 68 68" stroke="white" stroke-width="9" stroke-linecap="round"/>
+                <circle cx="68" cy="50" r="7" fill="url(#civicAccent)"/>
+            </svg>
+            <div class="logo-text">Civic</div>
+        </div>
+        <div class="header-actions">
+            <button class="icon-btn" id="notificationsBtn"><i data-lucide="bell"></i></button>
+            <button class="icon-btn" id="newPostBtn"><i data-lucide="plus-square"></i></button>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="app-main">
+
+        <!-- Feed Section (TikTok + Instagram Mix) -->
+        <section id="feedSection" class="view-section active">
+            <!-- Feed View Switcher -->
+            <div class="feed-toggle-bar">
+                <button class="toggle-btn active" id="btnReelsView"><i data-lucide="play-circle"></i> Reels (TikTok)</button>
+                <button class="toggle-btn" id="btnPostsView"><i data-lucide="grid"></i> Posts (Instagram)</button>
+            </div>
+
+            <!-- Stories Bar (Instagram/WhatsApp Stories) -->
+            <div class="stories-container">
+                <div class="story-item create-story">
+                    <div class="avatar-wrapper">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="You">
+                        <span class="plus-icon">+</span>
+                    </div>
+                    <p>Your Story</p>
+                </div>
+                <div class="story-item unread">
+                    <div class="avatar-wrapper">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" alt="Alex">
+                    </div>
+                    <p>Alex</p>
+                </div>
+                <div class="story-item unread">
+                    <div class="avatar-wrapper">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80" alt="Elena">
+                    </div>
+                    <p>Elena</p>
+                </div>
+                <div class="story-item">
+                    <div class="avatar-wrapper">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80" alt="David">
+                    </div>
+                    <p>David</p>
+                </div>
+            </div>
+
+            <!-- TikTok Reel Feed (Vertical Auto Scroll) -->
+            <div id="reelsContainer" class="reels-feed">
+                <!-- Reel Item 1 -->
+                <div class="reel-card">
+                    <img class="reel-bg" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&auto=format&fit=crop&q=80" alt="Reel Video Preview">
+                    <div class="reel-overlay">
+                        <div class="reel-info">
+                            <div class="user-row">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" class="mini-avatar">
+                                <span class="username">@alex_travels</span>
+                                <button class="follow-btn">Follow</button>
+                            </div>
+                            <p class="caption">Sunset vibes in Bali ✨🌊 #travel #wanderlust #civic</p>
+                            <div class="audio-track"><i data-lucide="music"></i> Original Audio - Alex</div>
+                        </div>
+                        <div class="reel-side-actions">
+                            <button class="action-btn like-btn"><i data-lucide="heart"></i><span>42.5K</span></button>
+                            <button class="action-btn comment-btn"><i data-lucide="message-circle"></i><span>1,208</span></button>
+                            <button class="action-btn share-btn"><i data-lucide="share-2"></i><span>890</span></button>
+                            <button class="action-btn"><i data-lucide="bookmark"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reel Item 2 -->
+                <div class="reel-card">
+                    <img class="reel-bg" src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=800&auto=format&fit=crop&q=80" alt="Fitness Reel">
+                    <div class="reel-overlay">
+                        <div class="reel-info">
+                            <div class="user-row">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" class="mini-avatar">
+                                <span class="username">@elena_fit</span>
+                                <button class="follow-btn">Follow</button>
+                            </div>
+                            <p class="caption">Morning workout routine! Never miss a Monday 💪🔥 #fitness #civic</p>
+                            <div class="audio-track"><i data-lucide="music"></i> Workout Beats - Dj Gym</div>
+                        </div>
+                        <div class="reel-side-actions">
+                            <button class="action-btn like-btn"><i data-lucide="heart"></i><span>18.9K</span></button>
+                            <button class="action-btn comment-btn"><i data-lucide="message-circle"></i><span>450</span></button>
+                            <button class="action-btn share-btn"><i data-lucide="share-2"></i><span>312</span></button>
+                            <button class="action-btn"><i data-lucide="bookmark"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instagram Grid/Card Feed (Hidden by Default) -->
+            <div id="postsContainer" class="posts-feed hidden">
+                <article class="insta-card">
+                    <header class="card-header">
+                        <div class="user-info">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&auto=format&fit=crop&q=80" class="avatar">
+                            <div>
+                                <span class="username">david_arch</span>
+                                <span class="location">Tokyo, Japan</span>
+                            </div>
+                        </div>
+                        <button class="icon-btn"><i data-lucide="more-horizontal"></i></button>
+                    </header>
+                    <div class="card-media">
+                        <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=800&auto=format&fit=crop&q=80" alt="Tokyo Architecture">
+                    </div>
+                    <div class="card-actions">
+                        <div class="left-actions">
+                            <button class="icon-btn like-btn"><i data-lucide="heart"></i></button>
+                            <button class="icon-btn comment-btn"><i data-lucide="message-circle"></i></button>
+                            <button class="icon-btn"><i data-lucide="send"></i></button>
+                        </div>
+                        <button class="icon-btn"><i data-lucide="bookmark"></i></button>
+                    </div>
+                    <div class="card-content">
+                        <div class="likes-count">liked by <b>elena_fit</b> and <b>3,410 others</b></div>
+                        <p class="caption"><b>david_arch</b> City lights in neon bloom 🌃 Japan nights are unmatched.</p>
+                        <span class="time-ago">2 hours ago</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- WhatsApp Chat Section -->
+        <section id="chatSection" class="view-section hidden">
+            <div class="chat-app-container">
+                <!-- Chat List Sidebar -->
+                <div class="chat-sidebar">
+                    <div class="chat-search">
+                        <i data-lucide="search"></i>
+                        <input type="text" placeholder="Search chats or messages">
+                    </div>
+                    <div class="chat-list">
+                        <div class="chat-item active" data-chat="alex">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" class="avatar">
+                            <div class="chat-details">
+                                <div class="chat-row-top">
+                                    <span class="chat-name">Alex Smith</span>
+                                    <span class="chat-time">14:32</span>
+                                </div>
+                                <div class="chat-row-bottom">
+                                    <span class="chat-preview">Did you check out Civic? 🔥</span>
+                                    <span class="badge">2</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chat-item" data-chat="elena">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80" class="avatar">
+                            <div class="chat-details">
+                                <div class="chat-row-top">
+                                    <span class="chat-name">Elena Rostova</span>
+                                    <span class="chat-time">12:15</span>
+                                </div>
+                                <div class="chat-row-bottom">
+                                    <span class="chat-preview">See you at the gym tomorrow! 👍</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Active Conversation Area -->
+                <div class="chat-window">
+                    <div class="chat-header">
+                        <div class="active-user">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" class="avatar" id="activeChatAvatar">
+                            <div>
+                                <h4 id="activeChatName">Alex Smith</h4>
+                                <span class="status online">online</span>
+                            </div>
+                        </div>
+                        <div class="chat-header-actions">
+                            <button class="icon-btn"><i data-lucide="phone"></i></button>
+                            <button class="icon-btn"><i data-lucide="video"></i></button>
+                            <button class="icon-btn"><i data-lucide="more-vertical"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="messages-container" id="messagesContainer">
+                        <div class="message incoming">
+                            <p>Hey there! Welcome to Civic 🙌</p>
+                            <span class="msg-time">14:30</span>
+                        </div>
+                        <div class="message incoming">
+                            <p>Did you check out Civic? 🔥</p>
+                            <span class="msg-time">14:32</span>
+                        </div>
+                    </div>
+
+                    <div class="chat-input-area">
+                        <button class="icon-btn"><i data-lucide="paperclip"></i></button>
+                        <input type="text" id="chatInput" placeholder="Type a message...">
+                        <button class="icon-btn send-btn" id="sendMessageBtn"><i data-lucide="send"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Explore Section -->
+        <section id="exploreSection" class="view-section hidden">
+            <div class="explore-header">
+                <div class="chat-search">
+                    <i data-lucide="search"></i>
+                    <input type="text" placeholder="Search creators, hashtags, or music">
+                </div>
+            </div>
+            <div class="explore-grid">
+                <div class="grid-item large"><img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500&auto=format&fit=crop&q=80" alt=""></div>
+                <div class="grid-item"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=80" alt=""></div>
+                <div class="grid-item"><img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=500&auto=format&fit=crop&q=80" alt=""></div>
+                <div class="grid-item"><img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=500&auto=format&fit=crop&q=80" alt=""></div>
+                <div class="grid-item"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=80" alt=""></div>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profileSection" class="view-section hidden">
+            <div class="profile-header">
+                <div class="profile-avatar-wrapper">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80" class="profile-avatar">
+                </div>
+                <div class="profile-info">
+                    <h2>Jane Doe <i data-lucide="check-circle-2" class="verified-icon"></i></h2>
+                    <p class="bio">Digital Creator | Explorer 🌿 | Building the future of Civic 🚀</p>
+                    <div class="profile-stats">
+                        <div><b>128</b> <span>Posts</span></div>
+                        <div><b>45.2K</b> <span>Followers</span></div>
+                        <div><b>390</b> <span>Following</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bottom Navigation Bar (Mobile / Web App Style) -->
+    <nav class="bottom-nav">
+        <button class="nav-item active" data-target="feedSection">
+            <i data-lucide="home"></i>
+            <span>Home</span>
+        </button>
+        <button class="nav-item" data-target="exploreSection">
+            <i data-lucide="compass"></i>
+            <span>Explore</span>
+        </button>
+        <button class="nav-item" data-target="chatSection">
+            <div class="nav-icon-badge">
+                <i data-lucide="message-square"></i>
+                <span class="badge-dot"></span>
+            </div>
+            <span>Chats</span>
+        </button>
+        <button class="nav-item" data-target="profileSection">
+            <i data-lucide="user"></i>
+            <span>Profile</span>
+        </button>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
